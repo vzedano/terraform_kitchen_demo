@@ -29,6 +29,7 @@ A demo on how Terraform works with AWS and can be tested w/Kitchen
     - Create `main.tf`, `outputs.tf` and `variables.tf` files in `test/fixtures/tf_module` to call the real terraform plan as a module
     - Create a folder that will hold our tests: `test/integration/default/controls`
     - Create the `kitchen.yml` and `test/integration/default/inspec.yml` files and reference the created directories in `kitchen.yml` as per kitchen config.
+    - Create the `testing.tfvars` file for the test variables to be used for the module.
     - Add the tests under `test/integration/default/`
     - Run `bundle exec kitchen converge` to apply the state
     - Run `bundle exec kitchen verify` to verify the state as per tests

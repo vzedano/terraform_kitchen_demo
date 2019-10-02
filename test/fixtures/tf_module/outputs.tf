@@ -12,3 +12,11 @@ output "file_2_content" {
   description = "The content of file_2.txt"
   value       = "${module.kitchen_test.file_2_content}"
 }
+
+output "terraform_state" {
+  description = "This output is used as an attribute in the state_file control"
+
+  value = <<EOV
+${path.cwd}/terraform.tfstate.d/${terraform.workspace}/terraform.tfstate
+EOV
+}
