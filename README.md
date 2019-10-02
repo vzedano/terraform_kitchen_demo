@@ -24,3 +24,12 @@ A demo on how Terraform works with AWS and can be tested w/Kitchen
 1. Create a `main.tf`, `outputs.tf` and `variables.tf` files and add the `aws` provider to `main.tf`.
 1. Declare the desired S3 bucket resource
 1. Declare the s3 bucket object resources. (the files). Don't forget to set the timestamp as the content.
+1. Create kitchen test case
+    - Create folder `test/fixtures/tf_module` for storing our terraform plan managed by kitchen
+    - Create `main.tf`, `outputs.tf` and `variables.tf` files in `test/fixtures/tf_module` to call the real terraform plan as a module
+    - Create a folder that will hold our tests: `test/integration/default/controls`
+    - Create the `kitchen.yml` and `test/integration/default/inspec.yml` files and reference the created directories in `kitchen.yml` as per kitchen config.
+    - Add the tests under `test/integration/default/`
+    - Run `bundle exec kitchen converge` to apply the state
+    - Run `bundle exec kitchen verify` to verify the state as per tests
+    - Run `bundle exec kitchen destroy` to destroy the resources created by kitchen
