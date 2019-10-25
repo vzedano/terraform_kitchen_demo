@@ -12,3 +12,10 @@ output "file_2_content" {
   description = "The content of file_2.txt"
   value       = "${aws_s3_bucket_object.file2.content}"
 }
+output "kubeconfig" {
+  value = "${local.kubeconfig}"
+}
+
+output "config_map_aws_auth" {
+  value = "${local.config_map_aws_auth}"
+}
