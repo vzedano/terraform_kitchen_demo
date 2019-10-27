@@ -20,3 +20,12 @@ output "terraform_state" {
 ${path.cwd}/terraform.tfstate.d/${terraform.workspace}/terraform.tfstate
 EOV
 }
+
+output "helloworld_app_url" {
+  value = "${module.kitchen_test.helloworld_app_url}"
+}
+
+
+output "helloworld_app_port" {
+  value = "${module.kitchen_test.helloworld_app_port}"
+}

@@ -19,3 +19,11 @@ output "kubeconfig" {
 output "config_map_aws_auth" {
   value = "${local.config_map_aws_auth}"
 }
+
+output "helloworld_app_url" {
+  value = "${kubernetes_service.helloworld.load_balancer_ingress[0].hostname}"
+}
+
+output "helloworld_app_port" {
+  value = "${kubernetes_service.helloworld.spec[0].port[0].port}"
+}

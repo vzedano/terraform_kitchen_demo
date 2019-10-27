@@ -2,6 +2,7 @@
 driver:
   name: terraform
   root_module_directory: test/fixtures/tf_module
+  command_timeout: 1200
   variable_files:
     - testing.tfvars
 
@@ -11,14 +12,15 @@ provisioner:
 verifier:
   name: terraform
   systems:
-    - name: default
+    - name: eks
       backend: local
       controls:
         - s3_bucket
         - s3_files
+        - helloworld 
 
 platforms:
   - name: terraform
 
 suites:
-  - name: default
+  - name: eks
